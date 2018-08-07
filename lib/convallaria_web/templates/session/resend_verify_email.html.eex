@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">重新发送激活邮件?</div>
+  <div class="card-body">
+    <form class="new_user" id="new_user" action="/resend_verify_email" accept-charset="UTF-8" method="post">
+      <input type="hidden" name="_method" value="post" />
+      <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>" />
+      <div class="form-group">
+        <input type="email" class="form-control input-lg" placeholder="Email" name="user[email]" id="user_email">
+        <p class="form-text text-muted">此功能会发送激活连接到您的邮箱 点击连接激活账户</p>
+      </div>
+      <div class="form-actions">
+        <input type="submit" name="commit" value="发送激活邮件" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
+</div>

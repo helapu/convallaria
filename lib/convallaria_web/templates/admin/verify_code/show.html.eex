@@ -1,0 +1,23 @@
+<h2>Show Verify code</h2>
+
+<ul>
+
+  <li>
+    <strong>Code:</strong>
+    <%= @verify_code.code %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @verify_code.type %>
+  </li>
+
+  <li>
+    <strong>Mobile:</strong>
+    <%= @verify_code.mobile %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: admin_verify_code_path(@conn, :edit, @verify_code) %></span>
+<span><%= link "Back", to: admin_verify_code_path(@conn, :index) %></span>

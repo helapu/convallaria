@@ -1,0 +1,48 @@
+<h2>Show User</h2>
+
+<ul>
+
+  <li>
+    <strong>Nickname:</strong>
+    <%= @user.nickname %>
+  </li>
+
+  <li>
+    <strong>Username:</strong>
+    <%= @user.username %>
+  </li>
+
+  <li>
+    <strong>Mobile:</strong>
+    <%= @user.mobile %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+  <li>
+    <strong>Encrypted password:</strong>
+    <%= @user.encrypted_password %>
+  </li>
+
+  <li>
+    <strong>Last login:</strong>
+    <%= @user.last_login %>
+  </li>
+
+  <li>
+    <strong>Is admin:</strong>
+    <%= @user.is_admin %>
+  </li>
+
+  <li>
+    <strong>Is active:</strong>
+    <%= @user.is_active %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: admin_user_path(@conn, :edit, @user) %></span>
+<span><%= link "Back", to: admin_user_path(@conn, :index) %></span>

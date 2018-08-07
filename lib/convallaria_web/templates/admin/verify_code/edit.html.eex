@@ -1,0 +1,5 @@
+<h2>Edit Verify code</h2>
+
+<%= render "form.html", Map.put(assigns, :action, admin_verify_code_path(@conn, :update, @verify_code)) %>
+
+<span><%= link "Back", to: admin_verify_code_path(@conn, :index) %></span>

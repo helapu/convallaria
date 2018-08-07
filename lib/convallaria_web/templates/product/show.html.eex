@@ -1,0 +1,33 @@
+<h2>Show Product</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @product.name %>
+  </li>
+
+  <li>
+    <strong>Key:</strong>
+    <%= @product.key %>
+  </li>
+
+  <li>
+    <strong>Secret:</strong>
+    <%= @product.secret %>
+  </li>
+
+  <li>
+    <strong>Node type:</strong>
+    <%= @product.node_type %>
+  </li>
+
+  <li>
+    <strong>Device type:</strong>
+    <%= @product.device_type %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: product_path(@conn, :edit, @product) %></span>
+<span><%= link "Back", to: product_path(@conn, :index) %></span>

@@ -1,0 +1,33 @@
+<h2>Show Device</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @device.name %>
+  </li>
+
+  <li>
+    <strong>Secret:</strong>
+    <%= @device.secret %>
+  </li>
+
+  <li>
+    <strong>Active time:</strong>
+    <%= @device.active_time %>
+  </li>
+
+  <li>
+    <strong>Last online:</strong>
+    <%= @device.last_online %>
+  </li>
+
+  <li>
+    <strong>Ip:</strong>
+    <%= @device.ip %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: device_path(@conn, :edit, @device) %></span>
+<span><%= link "Back", to: device_path(@conn, :index) %></span>

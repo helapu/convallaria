@@ -57,6 +57,15 @@ exports.config = {
   },
 
   npm: {
-    enabled: true
+    enabled: true,
+
+    styles: {
+      'bootstrap': ['dist/css/bootstrap.css'],
+      '@coreui/coreui': ['dist/css/coreui.css'],
+      '@coreui/icons': ['css/coreui-icons.min.css'],
+      'flag-icon-css': ['css/flag-icon.min.css'],
+      'font-awesome': ['css/font-awesome.min.css'],
+      'simple-line-icons': ['css/simple-line-icons.css'],
+    }
   }
 };
