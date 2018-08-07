@@ -23,7 +23,7 @@ defmodule Convallaria.Accounts.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:nickname, :username, :mobile, :email, :last_login])
-    |> validate_required([:nickname, :username, :mobile, :email, :encrypted_password, :last_login, :is_admin, :is_active])
+    |> validate_required([:mobile])
   end
 
   @doc false

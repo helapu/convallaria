@@ -16,7 +16,10 @@ defmodule ConvallariaWeb.Api.SessionController do
     if user do
       if Bcrypt.verify_pass(password, user.encrypted_password) && user.is_active do
         if user.is_active do
-          render(conn, "login.json", token: token = Token.generate_token(user), user: user)
+          last_login = user.last_login
+          # 标注用户最后登录时间
+          Accounts.update_user(user, %{last_login: DateTime.utc_now})
+          render(conn, "login.json", token: token = Token.generate_token(user), user: user, last_login: last_login)
         else
           render(conn, "error.json", error: "用户被禁用")
         end
