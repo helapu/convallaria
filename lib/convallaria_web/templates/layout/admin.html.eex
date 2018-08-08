@@ -119,7 +119,7 @@
               </a>
             </li>
 
-            <li class="nav-title">DATA V</li>
+            <li class="nav-title">可视化</li>
             <li class="nav-item">
               <a class="nav-link" href="colors.html">
                 <i class="nav-icon icon-drop"></i>物联网</a>
@@ -220,13 +220,18 @@
               <a class="nav-link nav-dropdown-toggle" href="admin#">
                 <i class="nav-icon icon-puzzle"></i>账户</a>
               <ul class="nav-dropdown-items">
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="base/cards.html">
+                    <i class="nav-icon icon-puzzle"></i> 概览</a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="base/breadcrumb.html">
                     <i class="nav-icon icon-puzzle"></i> 列表</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="base/cards.html">
-                    <i class="nav-icon icon-puzzle"></i> 概览</a>
+                  <a class="nav-link" href="<%= admin_verify_code_path(@conn, :index) %>">
+                    <i class="nav-icon icon-puzzle"></i> 验证码</a>
                 </li>
               </ul>
             </li>
@@ -236,11 +241,11 @@
                 <i class="nav-icon icon-puzzle"></i>设置</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                  <a class="nav-link" href="/admin/setting/account">
+                  <a class="nav-link" href="<%= admin_setting_path(@conn, :profile) %>">
                     <i class="nav-icon icon-drop"></i>个人信息</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/admin/setting/password/">
+                  <a class="nav-link" href="<%= admin_setting_path(@conn, :password) %>">
                     <i class="nav-icon icon-drop"></i>修改密码</a>
                 </li>
                 <li class="nav-item">

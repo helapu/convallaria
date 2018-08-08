@@ -26,6 +26,22 @@ defmodule Convallaria.Accounts.User do
     |> validate_required([:mobile])
   end
 
+  @doc """
+  Change user password.
+  """
+  def update_password_changeset(user, attrs) do
+    required_attrs = ~w(
+      password
+      password_confirmation
+    )a
+
+    user
+    |> cast(attrs, required_attrs)
+    |> validate_required(required_attrs)
+    |> validate_confirmation(:password)
+    |> put_pass_hash
+  end
+
   @doc false
   def register_changeset(user, attrs) do
     permitted_attrs = ~w(

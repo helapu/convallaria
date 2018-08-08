@@ -24,6 +24,7 @@ defmodule ConvallariaWeb do
       import ConvallariaWeb.Router.Helpers
       import ConvallariaWeb.Gettext
       import ConvallariaWeb.Session, only: [current_user: 1]
+      import Logger
     end
   end
 

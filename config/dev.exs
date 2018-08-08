@@ -51,7 +51,7 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :convallaria, Convallaria.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "helapu",
+  username: "postgres",
   password: "postgres",
   database: "convallaria_dev",
   hostname: "localhost",

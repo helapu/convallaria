@@ -1,0 +1,30 @@
+<h2>Show User</h2>
+
+<ul>
+
+  <li>
+    <strong>Nickname:</strong>
+    <%= @changeset.data.nickname %>
+  </li>
+
+  <li>
+    <strong>Username:</strong>
+    <%= @changeset.data.username %>
+  </li>
+
+  <li>
+    <strong>Mobile:</strong>
+    <%= @changeset.data.mobile %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @changeset.data.email %>
+  </li>
+
+  <li>
+    <strong>Last login:</strong>
+    <%= @changeset.data.last_login %>
+  </li>
+
+</ul>

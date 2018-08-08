@@ -76,6 +76,14 @@ defmodule ConvallariaWeb.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
+
+    scope "/setting" do
+      get "/account", SettingController, :account
+      get "/password", SettingController, :password
+      get "/profile", SettingController, :profile
+      get "/reward", SettingController, :reward
+      put "/change", SettingController, :change
+    end
     resources "/verify_codes", VerifyCodeController
     resources "/products", ProductController
     resources "/devices", DeviceController

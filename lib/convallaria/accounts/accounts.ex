@@ -8,6 +8,16 @@ defmodule Convallaria.Accounts do
 
   alias Convallaria.Accounts.User
   
+  def update_user_password(user, attrs) do
+    case check_user_password(user, attrs["current_password"]) do
+      true ->
+        user
+        |> User.update_password_changeset(attrs)
+        |> Repo.update()
+
+      _ -> {:error, "当前密码错误"}
+    end
+  end
 
   def register_user(attrs) do
     %User{}
@@ -125,6 +135,19 @@ defmodule Convallaria.Accounts do
   def change_user(%User{} = user) do
     User.changeset(user, %{})
   end
+
+  @doc """
+  检查输入密码
+  """
+  defp check_user_password(user, password) do
+    case user do
+      nil ->
+        false
+      _ ->
+        !is_nil(user.encrypted_password) && Bcrypt.verify_pass(password, user.encrypted_password)
+    end
+  end
+
 
   alias Convallaria.Accounts.VerifyCode
   

@@ -6,8 +6,8 @@
       <th>Code</th>
       <th>Type</th>
       <th>Mobile</th>
-
-      <th></th>
+      <th>是否有效</th>
+      <th>inserted_at</th>
     </tr>
   </thead>
   <tbody>
@@ -16,12 +16,9 @@
       <td><%= verify_code.code %></td>
       <td><%= verify_code.type %></td>
       <td><%= verify_code.mobile %></td>
+      <td class='btn <%= if is_validated?(verify_code) do "btn-success" else "btn-danger" end %>'><%= if is_validated?(verify_code) do "Yes" else "No" end %></td>
+      <td><%= verify_code.inserted_at %></td>
 
-      <td class="text-right">
-        <span><%= link "Show", to: admin_verify_code_path(@conn, :show, verify_code), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: admin_verify_code_path(@conn, :edit, verify_code), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: admin_verify_code_path(@conn, :delete, verify_code), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
-      </td>
     </tr>
 <% end %>
   </tbody>
