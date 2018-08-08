@@ -3,7 +3,7 @@ exports.config = {
   files: {
     javascripts: {
       joinTo: "js/app.js"
-
+     
       // To use a separate vendor.js bundle, specify two files path
       // http://brunch.io/docs/config#-files-
       // joinTo: {
@@ -67,5 +67,6 @@ exports.config = {
       'font-awesome': ['css/font-awesome.min.css'],
       'simple-line-icons': ['css/simple-line-icons.css'],
     }
+
   }
 };

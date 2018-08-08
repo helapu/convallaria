@@ -119,54 +119,142 @@
               </a>
             </li>
 
-            <li class="nav-title">动态看板</li>
+            <li class="nav-title">DATA V</li>
             <li class="nav-item">
               <a class="nav-link" href="colors.html">
-                <i class="nav-icon icon-drop"></i>广告</a>
+                <i class="nav-icon icon-drop"></i>物联网</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="colors.html">
-                <i class="nav-icon icon-drop"></i>零售</a>
+                <i class="nav-icon icon-drop"></i>共享经济</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="typography.html">
-                <i class="nav-icon icon-pencil"></i>售货机</a>
+                <i class="nav-icon icon-pencil"></i>无人零售</a>
             </li>
 
-            <li class="nav-title">用户</li>
+            <li class="nav-title">E泰云</li>
             <li class="nav-item">
               <a class="nav-link" href="colors.html">
-                <i class="nav-icon icon-drop"></i>概览</a>
+                <i class="nav-icon icon-drop"></i>定义</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<%= admin_user_path(@conn, :index) %>">
-                <i class="nav-icon icon-pencil"></i>用户列表</a>
+              <a class="nav-link" href="colors.html">
+                <i class="nav-icon icon-drop"></i>统计</a>
+            </li>
+            
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="admin#">
+                <i class="nav-icon icon-puzzle"></i>物联网</a>
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="base/breadcrumb.html">
+                    <i class="nav-icon icon-puzzle"></i> 产品</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/cards.html">
+                    <i class="nav-icon icon-puzzle"></i> 设备</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/cards.html">
+                    <i class="nav-icon icon-puzzle"></i> 文档</a>
+                </li>
+              </ul>
             </li>
 
-            <li class="nav-title">设置</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/setting/account">
-                <i class="nav-icon icon-drop"></i>个人信息</a>
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="admin#">
+                <i class="nav-icon icon-puzzle"></i>共享</a>
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="base/breadcrumb.html">
+                    <i class="nav-icon icon-puzzle"></i> 产品</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/cards.html">
+                    <i class="nav-icon icon-puzzle"></i> 共享</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/breadcrumb.html">
+                    <i class="nav-icon icon-puzzle"></i> 库存</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/cards.html">
+                    <i class="nav-icon icon-puzzle"></i> 缺货</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/tooltips.html">
+                    <i class="nav-icon icon-puzzle"></i> 发货</a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/setting/password/">
-                <i class="nav-icon icon-drop"></i>修改密码</a>
+
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="admin#">
+                <i class="nav-icon icon-puzzle"></i>无人零售</a>
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="base/breadcrumb.html">
+                    <i class="nav-icon icon-puzzle"></i> 产品</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/cards.html">
+                    <i class="nav-icon icon-puzzle"></i> 设备</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/breadcrumb.html">
+                    <i class="nav-icon icon-puzzle"></i> 库存</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/cards.html">
+                    <i class="nav-icon icon-puzzle"></i> 缺货</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/tooltips.html">
+                    <i class="nav-icon icon-puzzle"></i> 发货</a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">
-                <i class="nav-icon icon-pencil"></i>退出</a>
+            
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="admin#">
+                <i class="nav-icon icon-puzzle"></i>账户</a>
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="base/breadcrumb.html">
+                    <i class="nav-icon icon-puzzle"></i> 列表</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/cards.html">
+                    <i class="nav-icon icon-puzzle"></i> 概览</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" href="admin#">
+                <i class="nav-icon icon-puzzle"></i>设置</a>
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin/setting/account">
+                    <i class="nav-icon icon-drop"></i>个人信息</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin/setting/password/">
+                    <i class="nav-icon icon-drop"></i>修改密码</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">
+                    <i class="nav-icon icon-pencil"></i>退出</a>
+                </li>
+              </ul>
             </li>
 
             <li class="nav-item mt-auto">
               <a class="nav-link nav-link-success" href="https://coreui.io" target="_top">
                 <i class="nav-icon icon-cloud-download"></i> Download CoreUI</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
-                <i class="nav-icon icon-layers"></i> Try CoreUI
-                <strong>PRO</strong>
-              </a>
-            </li>
+            
           </ul>
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
