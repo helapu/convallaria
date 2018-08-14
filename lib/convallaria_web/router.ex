@@ -45,6 +45,11 @@ defmodule ConvallariaWeb.Router do
     plug ConvallariaWeb.Plugs.AuthenticatedApi
   end
 
+  # rabbitmq_api
+  pipeline :rabbitmq do
+    plug :accepts, ["json"]
+  end
+
   scope "/", ConvallariaWeb do
     pipe_through :tourist_user # Use the default browser stack
 
@@ -76,6 +81,16 @@ defmodule ConvallariaWeb.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
+    resources "/verify_codes", VerifyCodeController
+    resources "/products", ProductController
+    resources "/devices", DeviceController
+    resources "/auths", AuthController
+
+    scope "/" do
+      get "/visual_iot", VisualController, :visual_iot
+      # get "/visual_iot", VisualController, :visual_iot
+
+    end
 
     scope "/setting" do
       get "/account", SettingController, :account
@@ -84,9 +99,6 @@ defmodule ConvallariaWeb.Router do
       get "/reward", SettingController, :reward
       put "/change", SettingController, :change
     end
-    resources "/verify_codes", VerifyCodeController
-    resources "/products", ProductController
-    resources "/devices", DeviceController
 
   end
 
@@ -106,6 +118,19 @@ defmodule ConvallariaWeb.Router do
 
     end
     
+  end
+
+  scope "/rabbitmq", ConvallariaWeb.Rabbitmq, as: :rabbitmq do
+    pipe_through :rabbitmq
+
+    scope "/auth" do
+      get "/user", AuthController, :user
+      get "/vhost", AuthController, :vhost
+      get "/resource", AuthController, :resource
+      get "/topic", AuthController, :topic
+  
+    end
+
   end
 
 

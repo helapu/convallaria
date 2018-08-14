@@ -198,4 +198,5 @@ defmodule Convallaria.Devices do
     Device.changeset(device, %{})
   end
 
+
 end

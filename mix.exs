@@ -20,7 +20,7 @@ defmodule Convallaria.Mixfile do
   def application do
     [
       mod: {Convallaria.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :phoenix_pubsub, :bus]
     ]
   end
 
@@ -43,6 +43,9 @@ defmodule Convallaria.Mixfile do
       {:cowboy, "~> 1.0"},
       {:bcrypt_elixir, "~> 1.0"},
       {:timex, "~> 3.3"},
+      {:amqp, "~> 0.3"},
+      {:poison, "~> 3.0"},
+      {:bus, "~> 0.1.4"},
     ]
   end
 

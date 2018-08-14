@@ -14,6 +14,7 @@ defmodule Convallaria.Application do
       supervisor(ConvallariaWeb.Endpoint, []),
       # Start your own worker by calling: Convallaria.Worker.start_link(arg1, arg2, arg3)
       # worker(Convallaria.Worker, [arg1, arg2, arg3]),
+      # worker(Convallaria.Amqp, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

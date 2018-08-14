@@ -43,6 +43,10 @@ mix phx.gen.html Devices Product products name:string key:string secret:string n
 
 mix phx.gen.html Devices Device devices name:string secret:string active_time:utc_datetime last_online:utc_datetime ip:string --web Admin --no-schema
 
+### 共享
+mix phx.gen.html Shares GoodKind good_kinds name:string desc:text --web Admin
+mix phx.gen.html Shares GoodItem good_items name:string deposit:float deal_status:integer desc:text --web Admin
+mix phx.gen.html Shares GoodDeal good_deals share_at:utc_datetime back_at:utc_datetime deal_status:integer --web Admin
 
 ## 提供API
 
@@ -61,7 +65,6 @@ array, binary, boolean, date, decimal, float, integer, map, naive_datetime,
 references, string, text, time, utc_datetime, uuid
 
 ```
-
 
 ## API状态码
 

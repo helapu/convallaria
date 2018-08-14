@@ -138,4 +138,66 @@ defmodule Convallaria.DevicesTest do
       assert %Ecto.Changeset{} = Devices.change_device(device)
     end
   end
+
+  describe "auths" do
+    alias Convallaria.Devices.Auth
+
+    @valid_attrs %{encrypted_password: "some encrypted_password", username: "some username"}
+    @update_attrs %{encrypted_password: "some updated encrypted_password", username: "some updated username"}
+    @invalid_attrs %{encrypted_password: nil, username: nil}
+
+    def auth_fixture(attrs \\ %{}) do
+      {:ok, auth} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Devices.create_auth()
+
+      auth
+    end
+
+    test "list_auths/0 returns all auths" do
+      auth = auth_fixture()
+      assert Devices.list_auths() == [auth]
+    end
+
+    test "get_auth!/1 returns the auth with given id" do
+      auth = auth_fixture()
+      assert Devices.get_auth!(auth.id) == auth
+    end
+
+    test "create_auth/1 with valid data creates a auth" do
+      assert {:ok, %Auth{} = auth} = Devices.create_auth(@valid_attrs)
+      assert auth.encrypted_password == "some encrypted_password"
+      assert auth.username == "some username"
+    end
+
+    test "create_auth/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Devices.create_auth(@invalid_attrs)
+    end
+
+    test "update_auth/2 with valid data updates the auth" do
+      auth = auth_fixture()
+      assert {:ok, auth} = Devices.update_auth(auth, @update_attrs)
+      assert %Auth{} = auth
+      assert auth.encrypted_password == "some updated encrypted_password"
+      assert auth.username == "some updated username"
+    end
+
+    test "update_auth/2 with invalid data returns error changeset" do
+      auth = auth_fixture()
+      assert {:error, %Ecto.Changeset{}} = Devices.update_auth(auth, @invalid_attrs)
+      assert auth == Devices.get_auth!(auth.id)
+    end
+
+    test "delete_auth/1 deletes the auth" do
+      auth = auth_fixture()
+      assert {:ok, %Auth{}} = Devices.delete_auth(auth)
+      assert_raise Ecto.NoResultsError, fn -> Devices.get_auth!(auth.id) end
+    end
+
+    test "change_auth/1 returns a auth changeset" do
+      auth = auth_fixture()
+      assert %Ecto.Changeset{} = Devices.change_auth(auth)
+    end
+  end
 end

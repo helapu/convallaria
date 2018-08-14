@@ -113,7 +113,7 @@
         <nav class="sidebar-nav">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="/admin">
+              <a class="nav-link" href="<%= admin_visual_path(@conn, :visual_iot) %>">
                 <i class="nav-icon icon-speedometer"></i> Dashboard
                 <span class="badge badge-primary">TYSON</span>
               </a>
@@ -121,26 +121,22 @@
 
             <li class="nav-title">可视化</li>
             <li class="nav-item">
-              <a class="nav-link" href="colors.html">
+              <a class="nav-link" href="<%= admin_visual_path(@conn, :visual_iot) %>">
                 <i class="nav-icon icon-drop"></i>物联网</a>
             </li>
-            <li class="nav-item">
+            <%# <li class="nav-item">
               <a class="nav-link" href="colors.html">
                 <i class="nav-icon icon-drop"></i>共享经济</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="typography.html">
                 <i class="nav-icon icon-pencil"></i>无人零售</a>
-            </li>
+            </li> %>
 
             <li class="nav-title">E泰云</li>
             <li class="nav-item">
               <a class="nav-link" href="colors.html">
                 <i class="nav-icon icon-drop"></i>定义</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="colors.html">
-                <i class="nav-icon icon-drop"></i>统计</a>
             </li>
             
             <li class="nav-item nav-dropdown">
@@ -148,11 +144,11 @@
                 <i class="nav-icon icon-puzzle"></i>物联网</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                  <a class="nav-link" href="base/breadcrumb.html">
+                  <a class="nav-link" href="<%= admin_product_path(@conn, :index) %>">
                     <i class="nav-icon icon-puzzle"></i> 产品</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="base/cards.html">
+                  <a class="nav-link" href="<%= admin_device_path(@conn, :index) %>">
                     <i class="nav-icon icon-puzzle"></i> 设备</a>
                 </li>
                 <li class="nav-item">
@@ -162,72 +158,15 @@
               </ul>
             </li>
 
-            <li class="nav-item nav-dropdown">
-              <a class="nav-link nav-dropdown-toggle" href="admin#">
-                <i class="nav-icon icon-puzzle"></i>共享</a>
-              <ul class="nav-dropdown-items">
-                <li class="nav-item">
-                  <a class="nav-link" href="base/breadcrumb.html">
-                    <i class="nav-icon icon-puzzle"></i> 产品</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="base/cards.html">
-                    <i class="nav-icon icon-puzzle"></i> 共享</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="base/breadcrumb.html">
-                    <i class="nav-icon icon-puzzle"></i> 库存</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="base/cards.html">
-                    <i class="nav-icon icon-puzzle"></i> 缺货</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="base/tooltips.html">
-                    <i class="nav-icon icon-puzzle"></i> 发货</a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item nav-dropdown">
-              <a class="nav-link nav-dropdown-toggle" href="admin#">
-                <i class="nav-icon icon-puzzle"></i>无人零售</a>
-              <ul class="nav-dropdown-items">
-                <li class="nav-item">
-                  <a class="nav-link" href="base/breadcrumb.html">
-                    <i class="nav-icon icon-puzzle"></i> 产品</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="base/cards.html">
-                    <i class="nav-icon icon-puzzle"></i> 设备</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="base/breadcrumb.html">
-                    <i class="nav-icon icon-puzzle"></i> 库存</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="base/cards.html">
-                    <i class="nav-icon icon-puzzle"></i> 缺货</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="base/tooltips.html">
-                    <i class="nav-icon icon-puzzle"></i> 发货</a>
-                </li>
-              </ul>
-            </li>
             
             <li class="nav-item nav-dropdown">
               <a class="nav-link nav-dropdown-toggle" href="admin#">
                 <i class="nav-icon icon-puzzle"></i>账户</a>
               <ul class="nav-dropdown-items">
-                
+
                 <li class="nav-item">
-                  <a class="nav-link" href="base/cards.html">
-                    <i class="nav-icon icon-puzzle"></i> 概览</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="base/breadcrumb.html">
-                    <i class="nav-icon icon-puzzle"></i> 列表</a>
+                  <a class="nav-link" href="<%= admin_user_path(@conn, :index) %>">
+                    <i class="nav-icon icon-puzzle"></i> 用戶</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="<%= admin_verify_code_path(@conn, :index) %>">

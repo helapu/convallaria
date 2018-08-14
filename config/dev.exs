@@ -56,3 +56,15 @@ config :convallaria, Convallaria.Repo,
   database: "convallaria_dev",
   hostname: "localhost",
   pool_size: 10
+
+
+config :bus,
+  host: '47.107.38.146',
+  port: 1883,
+  client_id: "convallaria_mqtt", #needs to be string.
+  keep_alive: 100, #this is in seconds.
+  # username: "",
+  # password: "",
+  auto_reconnect: true, #if client get disconnected, it will auto reconnect.
+  auto_connect: true, #this will make sure when you start :bus process, it gets connected autometically
+  callback: Convallaria.BusCallback #callback module, you need to implement callback inside.
