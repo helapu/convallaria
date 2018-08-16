@@ -1,0 +1,5 @@
+<h2>New Account avatar</h2>
+
+<%= render "form.html", Map.put(assigns, :action, admin_account_avatar_path(@conn, :create)) %>
+
+<span><%= link "Back", to: admin_account_avatar_path(@conn, :index) %></span>

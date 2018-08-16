@@ -32,16 +32,19 @@ mix phx.gen.html Accounts User users nickname:string username:string mobile:stri
 
 mix phx.gen.html Accounts VerifyCode verify_codes code:string type:integer mobile:string 
 
-
 mix phx.gen.html Iothubs Product products name:string key:string secret:string node_type:integer desc:string
 
 mix phx.gen.html Iothubs Device devices product_key:string name:string secret:string iotid:string
 
+mix phx.gen.html Shares ExtinguisherItem extinguisher_items uuid:string name:string desc:text --web Admin
 
-### 共享
-mix phx.gen.html Shares GoodKind good_kinds name:string desc:text --web Admin
-mix phx.gen.html Shares GoodItem good_items name:string deposit:float deal_status:integer desc:text --web Admin
-mix phx.gen.html Shares GoodDeal good_deals share_at:utc_datetime back_at:utc_datetime deal_status:integer --web Admin
+mix phx.gen.html Shares Deal deals share_at:utc_datetime back_at:utc_datetime charge:float status:integer item_id:integer item_type:string user_id:integer --web Admin
+
+
+mix phx.gen.html Image AccountAvatar account_avatars url:string user_id:integer --web Admin
+
+mix phx.gen.html Image ShareGallery share_gallerys url:string item_type:string item_id:integer --web Admin
+
 
 ## API
 
@@ -50,6 +53,16 @@ mix phx.gen.json Accounts User users nickname:string username:string mobile:stri
 mix phx.gen.json Iothubs Product products name:string key:string secret:string node_type:integer desc:string --web Api --no-schema
 
 mix phx.gen.json Iothubs Device devices product_key:string name:string secret:string iotid:string --web Api --no-schema
+
+mix phx.gen.json Shares ExtinguisherItem extinguisher_items uuid:string name:string desc:text --web Api --no-schema
+
+mix phx.gen.json Shares Deal deals share_at:utc_datetime back_at:utc_datetime charge:float status:integer item_id:integer item_type:string user_id:integer --web Api --no-chema
+
+
+mix phx.gen.json Image Gallery gallerys image:string item_type:string item_id:integer --web Api --no-schema
+
+
+
 
 ```
 

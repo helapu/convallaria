@@ -1,0 +1,30 @@
+<h2>Listing Share gallerys</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Image type</th>
+      <th>Image</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for share_gallery <- @share_gallerys do %>
+    <tr>
+      <td><%= share_gallery.url %></td>
+      <td><%= share_gallery.item_type %></td>
+      <td><%= share_gallery.item_id %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: admin_share_gallery_path(@conn, :show, share_gallery), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: admin_share_gallery_path(@conn, :edit, share_gallery), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: admin_share_gallery_path(@conn, :delete, share_gallery), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Share gallery", to: admin_share_gallery_path(@conn, :new) %></span>

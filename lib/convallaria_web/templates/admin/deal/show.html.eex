@@ -1,0 +1,43 @@
+<h2>Show Deal</h2>
+
+<ul>
+
+  <li>
+    <strong>Share at:</strong>
+    <%= @deal.share_at %>
+  </li>
+
+  <li>
+    <strong>Back at:</strong>
+    <%= @deal.back_at %>
+  </li>
+
+  <li>
+    <strong>Charge:</strong>
+    <%= @deal.charge %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @deal.status %>
+  </li>
+
+  <li>
+    <strong>Item:</strong>
+    <%= @deal.item_id %>
+  </li>
+
+  <li>
+    <strong>Item type:</strong>
+    <%= @deal.item_type %>
+  </li>
+
+  <li>
+    <strong>User:</strong>
+    <%= @deal.user_id %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: admin_deal_path(@conn, :edit, @deal) %></span>
+<span><%= link "Back", to: admin_deal_path(@conn, :index) %></span>

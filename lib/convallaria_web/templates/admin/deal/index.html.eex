@@ -1,0 +1,38 @@
+<h2>Listing Deals</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Share at</th>
+      <th>Back at</th>
+      <th>Charge</th>
+      <th>Status</th>
+      <th>Item</th>
+      <th>Item type</th>
+      <th>User</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for deal <- @deals do %>
+    <tr>
+      <td><%= deal.share_at %></td>
+      <td><%= deal.back_at %></td>
+      <td><%= deal.charge %></td>
+      <td><%= deal.status %></td>
+      <td><%= deal.item_id %></td>
+      <td><%= deal.item_type %></td>
+      <td><%= deal.user_id %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: admin_deal_path(@conn, :show, deal), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: admin_deal_path(@conn, :edit, deal), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: admin_deal_path(@conn, :delete, deal), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Deal", to: admin_deal_path(@conn, :new) %></span>

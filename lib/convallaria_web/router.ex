@@ -79,6 +79,11 @@ defmodule ConvallariaWeb.Router do
     resources "/verify_codes", VerifyCodeController
     resources "/products", ProductController
     resources "/devices", DeviceController
+    resources "/extinguisher_items", ExtinguisherItemController
+    resources "/deals", DealController
+
+    resources "/share_gallerys", ShareGalleryController
+    resources "/account_avatars", AccountAvatarController
 
     scope "/" do
       get "/visual_iot", VisualController, :visual_iot
@@ -109,6 +114,9 @@ defmodule ConvallariaWeb.Router do
       resources "/users", UserController
       resources "/products", ProductController
       resources "/devices", DeviceController
+      resources "/extinguisher_items", ExtinguisherItemController
+      resources "/deals", DealController
+      post "/gallerys", GalleryController, :create
 
     end
     

@@ -1,0 +1,5 @@
+<h2>New Extinguisher item</h2>
+
+<%= render "form.html", Map.put(assigns, :action, admin_extinguisher_item_path(@conn, :create)) %>
+
+<span><%= link "Back", to: admin_extinguisher_item_path(@conn, :index) %></span>

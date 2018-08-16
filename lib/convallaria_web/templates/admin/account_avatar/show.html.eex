@@ -1,0 +1,18 @@
+<h2>Show Account avatar</h2>
+
+<ul>
+
+  <li>
+    <strong>Url:</strong>
+    <%= @account_avatar.url %>
+  </li>
+
+  <li>
+    <strong>User:</strong>
+    <%= @account_avatar.user_id %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: admin_account_avatar_path(@conn, :edit, @account_avatar) %></span>
+<span><%= link "Back", to: admin_account_avatar_path(@conn, :index) %></span>
