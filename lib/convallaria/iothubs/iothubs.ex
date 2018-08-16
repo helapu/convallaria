@@ -1,12 +1,12 @@
-defmodule Convallaria.Devices do
+defmodule Convallaria.Iothubs do
   @moduledoc """
-  The Devices context.
+  The Iothubs context.
   """
 
   import Ecto.Query, warn: false
   alias Convallaria.Repo
 
-  alias Convallaria.Devices.Product
+  alias Convallaria.Iothubs.Product
 
   @doc """
   Returns the list of products.
@@ -102,7 +102,7 @@ defmodule Convallaria.Devices do
     Product.changeset(product, %{})
   end
 
-  alias Convallaria.Devices.Device
+  alias Convallaria.Iothubs.Device
 
   @doc """
   Returns the list of devices.
@@ -197,6 +197,5 @@ defmodule Convallaria.Devices do
   def change_device(%Device{} = device) do
     Device.changeset(device, %{})
   end
-
 
 end

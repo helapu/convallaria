@@ -3,11 +3,10 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Product key</th>
       <th>Name</th>
       <th>Secret</th>
-      <th>Active time</th>
-      <th>Last online</th>
-      <th>Ip</th>
+      <th>Iotid</th>
 
       <th></th>
     </tr>
@@ -15,11 +14,10 @@
   <tbody>
 <%= for device <- @devices do %>
     <tr>
+      <td><%= device.product_key %></td>
       <td><%= device.name %></td>
       <td><%= device.secret %></td>
-      <td><%= device.active_time %></td>
-      <td><%= device.last_online %></td>
-      <td><%= device.ip %></td>
+      <td><%= device.iotid %></td>
 
       <td class="text-right">
         <span><%= link "Show", to: admin_device_path(@conn, :show, device), class: "btn btn-default btn-xs" %></span>

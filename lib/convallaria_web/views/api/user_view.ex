@@ -20,7 +20,7 @@ defmodule ConvallariaWeb.Api.UserView do
       mobile: user.mobile,
       email: user.email,
       encrypted_password: user.encrypted_password,
-      last_login: user.last_login,
+      last_login_at: user.last_login_at,
       is_admin: user.is_admin,
       is_active: user.is_active}
   end

@@ -7,7 +7,7 @@
       <th>Key</th>
       <th>Secret</th>
       <th>Node type</th>
-      <th>Device type</th>
+      <th>Desc</th>
 
       <th></th>
     </tr>
@@ -19,7 +19,7 @@
       <td><%= product.key %></td>
       <td><%= product.secret %></td>
       <td><%= product.node_type %></td>
-      <td><%= product.device_type %></td>
+      <td><%= product.desc %></td>
 
       <td class="text-right">
         <span><%= link "Show", to: admin_product_path(@conn, :show, product), class: "btn btn-default btn-xs" %></span>

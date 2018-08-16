@@ -9,14 +9,14 @@ defmodule Convallaria.BusCallback do
     IO.inspect "on_connect"
     IO.inspect data
 
-    topics = ["smoke","b","c"] #list of topics
-    qoses = [1,0,2] #list of qos in same order as topics.
-    callback_fun = fn(message) ->
-      IO.puts message
-      IO.puts "on_connect callback_fun"
-    end
-    #This function will be called when this perticular topic will be subscribed.
-    Bus.Mqtt.subscribe(topics,qoses,callback_fun)
+    # topics = ["smoke","b","c"] #list of topics
+    # qoses = [1,0,2] #list of qos in same order as topics.
+    # callback_fun = fn(message) ->
+    #   IO.puts message
+    #   IO.puts "on_connect callback_fun"
+    # end
+    # #This function will be called when this perticular topic will be subscribed.
+    # Bus.Mqtt.subscribe(topics,qoses,callback_fun)
 
   end
 

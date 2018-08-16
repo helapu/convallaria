@@ -3,6 +3,11 @@
 <ul>
 
   <li>
+    <strong>Product key:</strong>
+    <%= @device.product_key %>
+  </li>
+
+  <li>
     <strong>Name:</strong>
     <%= @device.name %>
   </li>
@@ -13,18 +18,8 @@
   </li>
 
   <li>
-    <strong>Active time:</strong>
-    <%= @device.active_time %>
-  </li>
-
-  <li>
-    <strong>Last online:</strong>
-    <%= @device.last_online %>
-  </li>
-
-  <li>
-    <strong>Ip:</strong>
-    <%= @device.ip %>
+    <strong>Iotid:</strong>
+    <%= @device.iotid %>
   </li>
 
 </ul>

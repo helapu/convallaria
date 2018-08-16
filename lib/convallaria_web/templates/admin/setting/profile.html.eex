@@ -24,7 +24,7 @@
 
   <li>
     <strong>Last login:</strong>
-    <%= @changeset.data.last_login %>
+    <%= @changeset.data.last_login_at %>
   </li>
 
 </ul>

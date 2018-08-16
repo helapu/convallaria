@@ -7,7 +7,7 @@ defmodule Convallaria.Repo.Migrations.CreateProducts do
       add :key, :string
       add :secret, :string
       add :node_type, :integer
-      add :device_type, :integer
+      add :desc, :string
 
       timestamps()
     end

@@ -12,10 +12,9 @@ defmodule ConvallariaWeb.Api.DeviceView do
 
   def render("device.json", %{device: device}) do
     %{id: device.id,
+      product_key: device.product_key,
       name: device.name,
       secret: device.secret,
-      active_time: device.active_time,
-      last_online: device.last_online,
-      ip: device.ip}
+      iotid: device.iotid}
   end
 end

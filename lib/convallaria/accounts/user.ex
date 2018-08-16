@@ -8,7 +8,7 @@ defmodule Convallaria.Accounts.User do
     field :encrypted_password, :string
     field :is_active, :boolean, default: false
     field :is_admin, :boolean, default: false
-    field :last_login, :utc_datetime
+    field :last_login_at, :utc_datetime
     field :mobile, :string
     field :nickname, :string
     field :username, :string
@@ -22,7 +22,7 @@ defmodule Convallaria.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:nickname, :username, :mobile, :email, :last_login])
+    |> cast(attrs, [:nickname, :username, :mobile, :email, :last_login_at])
     |> validate_required([:mobile])
   end
 

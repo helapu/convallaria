@@ -6,6 +6,12 @@
   <% end %>
 
   <div class="form-group">
+    <%= label f, :product_key, class: "control-label" %>
+    <%= text_input f, :product_key, class: "form-control" %>
+    <%= error_tag f, :product_key %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :name, class: "control-label" %>
     <%= text_input f, :name, class: "form-control" %>
     <%= error_tag f, :name %>
@@ -18,27 +24,9 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :active_time, class: "control-label" %>
-    <%= datetime_select f, :active_time, class: "form-control" %>
-    <%= error_tag f, :active_time %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :last_online, class: "control-label" %>
-    <%= datetime_select f, :last_online, class: "form-control" %>
-    <%= error_tag f, :last_online %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :ip, class: "control-label" %>
-    <%= text_input f, :ip, class: "form-control" %>
-    <%= error_tag f, :ip %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :gateway_id, class: "control-label" %>
-    <%= text_input f, :gateway_id, class: "form-control" %>
-    <%= error_tag f, :gateway_id %>
+    <%= label f, :iotid, class: "control-label" %>
+    <%= text_input f, :iotid, class: "form-control" %>
+    <%= error_tag f, :iotid %>
   </div>
 
   <div class="form-group">

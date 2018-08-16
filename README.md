@@ -28,37 +28,33 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 
 ## 数据模型
 
-mix phx.gen.html Accounts User users nickname:string username:string mobile:string email:string encrypted_password:string last_login:utc_datetime is_admin:boolean is_active:boolean
+mix phx.gen.html Accounts User users nickname:string username:string mobile:string email:string encrypted_password:string last_login_at:utc_datetime is_admin:boolean is_active:boolean active_at:utc_datetime
 
-mix phx.gen.html Devices Product products name:string key:string secret:string node_type:integer device_type:integer
-
-mix phx.gen.html Devices Device devices name:string secret:string active_time:utc_datetime last_online:utc_datetime ip:string
+mix phx.gen.html Accounts VerifyCode verify_codes code:string type:integer mobile:string 
 
 
-## 管理端
+mix phx.gen.html Iothubs Product products name:string key:string secret:string node_type:integer desc:string
 
-mix phx.gen.html Accounts User users nickname:string username:string mobile:string email:string encrypted_password:string last_login:utc_datetime is_admin:boolean is_active:boolean --web Admin --no-schema
+mix phx.gen.html Iothubs Device devices product_key:string name:string secret:string iotid:string
 
-mix phx.gen.html Devices Product products name:string key:string secret:string node_type:integer device_type:integer --web Admin --no-schema
-
-mix phx.gen.html Devices Device devices name:string secret:string active_time:utc_datetime last_online:utc_datetime ip:string --web Admin --no-schema
 
 ### 共享
 mix phx.gen.html Shares GoodKind good_kinds name:string desc:text --web Admin
 mix phx.gen.html Shares GoodItem good_items name:string deposit:float deal_status:integer desc:text --web Admin
 mix phx.gen.html Shares GoodDeal good_deals share_at:utc_datetime back_at:utc_datetime deal_status:integer --web Admin
 
-## 提供API
+## API
 
-mix phx.gen.json Accounts User users nickname:string username:string mobile:string email:string encrypted_password:string last_login:utc_datetime is_admin:boolean is_active:boolean --web Api --no-schema
+mix phx.gen.json Accounts User users nickname:string username:string mobile:string email:string encrypted_password:string last_login_at:utc_datetime is_admin:boolean is_active:boolean --web Api --no-schema
 
-mix phx.gen.json Devices Product products name:string key:string secret:string node_type:integer device_type:integer --web Api --no-schema
+mix phx.gen.json Iothubs Product products name:string key:string secret:string node_type:integer desc:string --web Api --no-schema
 
-mix phx.gen.json Devices Device devices name:string secret:string active_time:utc_datetime last_online:utc_datetime ip:string --web Api --no-schema
+mix phx.gen.json Iothubs Device devices product_key:string name:string secret:string iotid:string --web Api --no-schema
 
 ```
 
 
+ecto数据库支持格式
 ```
 
 array, binary, boolean, date, decimal, float, integer, map, naive_datetime,

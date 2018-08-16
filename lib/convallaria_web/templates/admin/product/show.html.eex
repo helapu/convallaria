@@ -23,8 +23,8 @@
   </li>
 
   <li>
-    <strong>Device type:</strong>
-    <%= @product.device_type %>
+    <strong>Desc:</strong>
+    <%= @product.desc %>
   </li>
 
 </ul>

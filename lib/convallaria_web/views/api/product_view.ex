@@ -16,6 +16,6 @@ defmodule ConvallariaWeb.Api.ProductView do
       key: product.key,
       secret: product.secret,
       node_type: product.node_type,
-      device_type: product.device_type}
+      desc: product.desc}
   end
 end

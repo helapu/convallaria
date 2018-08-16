@@ -23,7 +23,7 @@
       <td><%= user.mobile %></td>
       <td><%= user.email %></td>
       <td><%= user.encrypted_password %></td>
-      <td><%= user.last_login %></td>
+      <td><%= user.last_login_at %></td>
       <td><%= user.is_admin %></td>
       <td><%= user.is_active %></td>
 

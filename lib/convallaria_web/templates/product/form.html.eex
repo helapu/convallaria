@@ -30,9 +30,9 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :device_type, class: "control-label" %>
-    <%= number_input f, :device_type, class: "form-control" %>
-    <%= error_tag f, :device_type %>
+    <%= label f, :desc, class: "control-label" %>
+    <%= text_input f, :desc, class: "form-control" %>
+    <%= error_tag f, :desc %>
   </div>
 
   <div class="form-group">

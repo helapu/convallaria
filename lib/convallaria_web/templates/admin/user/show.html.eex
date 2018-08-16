@@ -29,7 +29,7 @@
 
   <li>
     <strong>Last login:</strong>
-    <%= @user.last_login %>
+    <%= @user.last_login_at %>
   </li>
 
   <li>

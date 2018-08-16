@@ -1,21 +1,21 @@
 defmodule ConvallariaWeb.Admin.ProductController do
   use ConvallariaWeb, :controller
 
-  alias Convallaria.Devices
-  alias Convallaria.Devices.Product
+  alias Convallaria.Iothubs
+  alias Convallaria.Iothubs.Product
 
   def index(conn, _params) do
-    products = Devices.list_products()
+    products = Iothubs.list_products()
     render(conn, "index.html", products: products)
   end
 
   def new(conn, _params) do
-    changeset = Devices.change_product(%Product{})
+    changeset = Iothubs.change_product(%Product{})
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"product" => product_params}) do
-    case Devices.create_product(product_params) do
+    case Iothubs.create_product(product_params) do
       {:ok, product} ->
         conn
         |> put_flash(:info, "Product created successfully.")
@@ -26,20 +26,20 @@ defmodule ConvallariaWeb.Admin.ProductController do
   end
 
   def show(conn, %{"id" => id}) do
-    product = Devices.get_product!(id)
+    product = Iothubs.get_product!(id)
     render(conn, "show.html", product: product)
   end
 
   def edit(conn, %{"id" => id}) do
-    product = Devices.get_product!(id)
-    changeset = Devices.change_product(product)
+    product = Iothubs.get_product!(id)
+    changeset = Iothubs.change_product(product)
     render(conn, "edit.html", product: product, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "product" => product_params}) do
-    product = Devices.get_product!(id)
+    product = Iothubs.get_product!(id)
 
-    case Devices.update_product(product, product_params) do
+    case Iothubs.update_product(product, product_params) do
       {:ok, product} ->
         conn
         |> put_flash(:info, "Product updated successfully.")
@@ -50,8 +50,8 @@ defmodule ConvallariaWeb.Admin.ProductController do
   end
 
   def delete(conn, %{"id" => id}) do
-    product = Devices.get_product!(id)
-    {:ok, _product} = Devices.delete_product(product)
+    product = Iothubs.get_product!(id)
+    {:ok, _product} = Iothubs.delete_product(product)
 
     conn
     |> put_flash(:info, "Product deleted successfully.")

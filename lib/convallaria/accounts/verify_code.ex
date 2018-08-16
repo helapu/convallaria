@@ -6,7 +6,7 @@ defmodule Convallaria.Accounts.VerifyCode do
   schema "verify_codes" do
     field :code, :string
     field :mobile, :string
-    field :type, :string
+    field :type, :integer
 
     timestamps()
   end
