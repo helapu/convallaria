@@ -36,14 +36,21 @@ mix phx.gen.html Iothubs Product products name:string key:string secret:string n
 
 mix phx.gen.html Iothubs Device devices product_key:string name:string secret:string iotid:string
 
+mix phx.gen.html Iothubs Follow follows user_id:integer device_id:integer is_ower:boolean
+
+
+mix phx.gen.html Iothubs Follow follows user_id:integer device_id:integer is_ower:boolean --web Admin --no-schema
+
 mix phx.gen.html Shares ExtinguisherItem extinguisher_items uuid:string name:string desc:text --web Admin
 
 mix phx.gen.html Shares Deal deals share_at:utc_datetime back_at:utc_datetime charge:float status:integer item_id:integer item_type:string user_id:integer --web Admin
 
 
-mix phx.gen.html Image AccountAvatar account_avatars url:string user_id:integer --web Admin
+mix phx.gen.html Images AccountAvatar account_avatars url:string user_id:integer --web Admin
 
-mix phx.gen.html Image ShareGallery share_gallerys url:string item_type:string item_id:integer --web Admin
+mix phx.gen.html Images ShareGallery share_gallerys url:string imageable_type:string imageable_id:integer --web Admin
+
+mix phx.gen.html Images DeviceGallery device_gallerys url:string device_id:integer --web Admin
 
 
 ## API
@@ -53,6 +60,8 @@ mix phx.gen.json Accounts User users nickname:string username:string mobile:stri
 mix phx.gen.json Iothubs Product products name:string key:string secret:string node_type:integer desc:string --web Api --no-schema
 
 mix phx.gen.json Iothubs Device devices product_key:string name:string secret:string iotid:string --web Api --no-schema
+
+mix phx.gen.html Iothubs Follow follows device_id:integer is_ower:boolean --web Api --no-schema
 
 mix phx.gen.json Shares ExtinguisherItem extinguisher_items uuid:string name:string desc:text --web Api --no-schema
 
@@ -85,3 +94,6 @@ references, string, text, time, utc_datetime, uuid
 - 1006 用户注册成功
 - 1007 验证码错误
 - 1008 注册信息错误
+
+
+- 1101 device shared more than 10 users

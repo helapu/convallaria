@@ -4,7 +4,7 @@ defmodule Convallaria.Mixfile do
   def project do
     [
       app: :convallaria,
-      version: "0.0.1",
+      version: "0.0.2",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -20,7 +20,7 @@ defmodule Convallaria.Mixfile do
   def application do
     [
       mod: {Convallaria.Application, []},
-      extra_applications: [:logger, :runtime_tools, :phoenix_pubsub, :bus]
+      extra_applications: [:logger, :runtime_tools, :phoenix_pubsub, :httpoison, :bus]
     ]
   end
 
@@ -44,8 +44,9 @@ defmodule Convallaria.Mixfile do
       {:bcrypt_elixir, "~> 1.0"},
       {:timex, "~> 3.3"},
       {:amqp, "~> 0.3"},
-      {:poison, "~> 3.0"},
+      {:poison, "~> 3.1"},
       {:bus, "~> 0.1.4"},
+      {:httpoison, "~> 1.2"},
     ]
   end
 

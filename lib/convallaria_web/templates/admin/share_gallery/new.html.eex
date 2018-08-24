@@ -1,5 +1,0 @@
-<h2>New Share gallery</h2>
-
-<%= render "form.html", Map.put(assigns, :action, admin_share_gallery_path(@conn, :create)) %>
-
-<span><%= link "Back", to: admin_share_gallery_path(@conn, :index) %></span>

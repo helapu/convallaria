@@ -22,27 +22,23 @@ import "phoenix_html"
 
 
 const $ = require("jquery");
+
 require("@coreui/coreui");
 require("chart.js");
 const CustomTooltips = require("@coreui/coreui-plugin-chartjs-custom-tooltips");
 
 document.addEventListener('DOMContentLoaded', () => {
-  // do your setup here
-  console.log('Initialized app');
 
-  /* eslint-disable object-shorthand */
+console.log('Initialized app');
 
-/* global Chart, CustomTooltips, getStyle, hexToRgba */
+$('.selectpicker').selectpicker({
+  style: 'btn-info',
+  size: 4
+});
 
-/**
- * --------------------------------------------------------------------------
- * CoreUI Free Boostrap Admin Template (v2.0.0): main.js
- * Licensed under MIT (https://coreui.io/license)
- * --------------------------------------------------------------------------
- */
 
-/* eslint-disable no-magic-numbers */
-// Disable the on-canvas tooltip
+
+
 Chart.defaults.global.pointHitDetectionRadius = 1;
 Chart.defaults.global.tooltips.enabled = false;
 Chart.defaults.global.tooltips.mode = 'index';
@@ -361,4 +357,3 @@ var brandBoxChart4 = new Chart($('#social-box-chart-4'), {
 });
 //# sourceMappingURL=main.js.map
 });
-

@@ -12,10 +12,8 @@ defmodule ConvallariaWeb.Api.ProductView do
 
   def render("product.json", %{product: product}) do
     %{id: product.id,
-      name: product.name,
       key: product.key,
       secret: product.secret,
-      node_type: product.node_type,
-      desc: product.desc}
+    }
   end
 end

@@ -29,8 +29,8 @@ defmodule ConvallariaWeb.Plugs.AuthenticatedApi do
                 conn
                 |> assign(:current_user, user)
                 |> assign(:current_user_id, user.id)
-                |> put_session(:current_user, user)
-                |> put_session(:current_user_id, user.id)
+                # |> put_session(:current_user, user)
+                # |> put_session(:current_user_id, user.id)
               true ->
                 conn
             end

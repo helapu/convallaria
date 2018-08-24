@@ -8,18 +8,18 @@
       <th>Secret</th>
       <th>Node type</th>
       <th>Desc</th>
-
       <th></th>
+
     </tr>
   </thead>
   <tbody>
 <%= for product <- @products do %>
     <tr>
-      <td><%= product.name %></td>
+      <td><%= product.nickname %></td>
       <td><%= product.key %></td>
       <td><%= product.secret %></td>
       <td><%= product.node_type %></td>
-      <td><%= product.desc %></td>
+      <td><%= product.description %></td>
 
       <td class="text-right">
         <span><%= link "Show", to: admin_product_path(@conn, :show, product), class: "btn btn-default btn-xs" %></span>

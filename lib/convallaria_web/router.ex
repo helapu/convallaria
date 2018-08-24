@@ -66,6 +66,7 @@ defmodule ConvallariaWeb.Router do
 
       resources "/products", ProductController
       resources "/devices", DeviceController
+      resources "/follows", FollowController
 
     end
 
@@ -79,10 +80,8 @@ defmodule ConvallariaWeb.Router do
     resources "/verify_codes", VerifyCodeController
     resources "/products", ProductController
     resources "/devices", DeviceController
-    resources "/extinguisher_items", ExtinguisherItemController
-    resources "/deals", DealController
+    resources "/follows", FollowController
 
-    resources "/share_gallerys", ShareGalleryController
     resources "/account_avatars", AccountAvatarController
 
     scope "/" do
@@ -111,11 +110,11 @@ defmodule ConvallariaWeb.Router do
     scope "/" do
       pipe_through :authenticated_api
 
-      resources "/users", UserController
+      scope "/users" do
+        get "/profile", UserController, :profile
+      end
       resources "/products", ProductController
       resources "/devices", DeviceController
-      resources "/extinguisher_items", ExtinguisherItemController
-      resources "/deals", DealController
       post "/gallerys", GalleryController, :create
 
     end

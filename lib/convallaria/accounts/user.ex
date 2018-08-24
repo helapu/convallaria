@@ -16,6 +16,9 @@ defmodule Convallaria.Accounts.User do
     field :password_confirmation, :string, virtual: true
     field :sms_code, :string, virtual: true
 
+    has_one :avatar, {"users_images", Image}, foreign_key: :assoc_id
+    # has_many :comments, {"posts_comments", Comment}, foreign_key: :assoc_id
+
     timestamps()
   end
 

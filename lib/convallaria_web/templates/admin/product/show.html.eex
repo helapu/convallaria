@@ -4,7 +4,7 @@
 
   <li>
     <strong>Name:</strong>
-    <%= @product.name %>
+    <%= @product.product_name %>
   </li>
 
   <li>
@@ -18,13 +18,24 @@
   </li>
 
   <li>
-    <strong>Node type:</strong>
+    <strong>Node Type:</strong>
     <%= @product.node_type %>
   </li>
 
   <li>
-    <strong>Desc:</strong>
-    <%= @product.desc %>
+    <strong>Description:</strong>
+    <%= @product.description %>
+  </li>
+
+  <li>
+    <strong>gmt_create:</strong>
+    <%= @product.gmt_create %>
+  </li>
+
+
+  <li>
+    <strong>product_desc:</strong>
+    <%= @product.product_desc %>
   </li>
 
 </ul>

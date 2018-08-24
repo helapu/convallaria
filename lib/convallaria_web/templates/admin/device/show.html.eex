@@ -1,28 +1,61 @@
 <h2>Show Device</h2>
 
-<ul>
+<table class="table table-responsive-sm">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Product Key</td>
+      <td><%= @device.product_key %></td>
+    </tr>
+    <tr>
+      <td>Key</td>
+      <td><%= @device.key %></td>
+    </tr>
+    <tr>
+      <td>Secret</td>
+      <td><%= @device.secret %></td>
+    </tr>
+    <tr>
+      <td>Iotid</td>
+      <td><%= @device.iotid %></td>
+    </tr>
+    <tr>
+      <td>Nick Name</td>
+      <td><%= @device.nickname %></td>
+    </tr>
+    <tr>
+      <td>Gmt Active</td>
+      <td><%= @device.gmt_active %></td>
+    </tr>
+    <tr>
+      <td>Utc Active</td>
+      <td><%= @device.utc_active %></td>
+    </tr>
+    <tr>
+      <td>Gmt Create</td>
+      <td><%= @device.gmt_create %></td>
+    </tr>
+    <tr>
+      <td>Utc Create</td>
+      <td><%= @device.utc_create %></td>
+    </tr>
+    <tr>
+      <td>Gmt Online</td>
+      <td><%= @device.gmt_online %></td>
+    </tr>
+    <tr>
+      <td>Utc Online</td>
+      <td><%= @device.utc_online %></td>
+    </tr>
+    
+  </tbody>
+</table>
 
-  <li>
-    <strong>Product key:</strong>
-    <%= @device.product_key %>
-  </li>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @device.name %>
-  </li>
-
-  <li>
-    <strong>Secret:</strong>
-    <%= @device.secret %>
-  </li>
-
-  <li>
-    <strong>Iotid:</strong>
-    <%= @device.iotid %>
-  </li>
-
-</ul>
 
 <span><%= link "Edit", to: admin_device_path(@conn, :edit, @device) %></span>
 <span><%= link "Back", to: admin_device_path(@conn, :index) %></span>

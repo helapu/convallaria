@@ -151,6 +151,12 @@
                   <a class="nav-link" href="<%= admin_device_path(@conn, :index) %>">
                     <i class="nav-icon icon-puzzle"></i> 设备</a>
                 </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="<%= admin_follow_path(@conn, :index) %>">
+                    <i class="nav-icon icon-puzzle"></i> Follow</a>
+                </li>
+
                 <li class="nav-item">
                   <a class="nav-link" href="base/cards.html">
                     <i class="nav-icon icon-puzzle"></i> 文档</a>
@@ -160,32 +166,13 @@
 
             <li class="nav-item nav-dropdown">
               <a class="nav-link nav-dropdown-toggle" href="admin#">
-                <i class="nav-icon icon-puzzle"></i>共享</a>
-              <ul class="nav-dropdown-items">
-                <li class="nav-item">
-                  <a class="nav-link" href="<%= admin_extinguisher_item_path(@conn, :index) %>">
-                    <i class="nav-icon icon-puzzle"></i> 灭火剂</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<%= admin_deal_path(@conn, :index) %>">
-                    <i class="nav-icon icon-puzzle"></i> 订单</a>
-                </li>
-                
-              </ul>
-            </li>
-
-            <li class="nav-item nav-dropdown">
-              <a class="nav-link nav-dropdown-toggle" href="admin#">
                 <i class="nav-icon icon-puzzle"></i>图片</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                  <a class="nav-link" href="<%= admin_share_gallery_path(@conn, :index) %>">
+                  <a class="nav-link" href="<%= admin_account_avatar_path(@conn, :index) %>">
                     <i class="nav-icon icon-puzzle"></i> 共享</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<%= admin_account_avatar_path(@conn, :index) %>">
-                    <i class="nav-icon icon-puzzle"></i> Avatar</a>
-                </li>
+                
                 
               </ul>
             </li>

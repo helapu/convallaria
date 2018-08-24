@@ -3,11 +3,11 @@ defmodule Convallaria.Repo.Migrations.CreateProducts do
 
   def change do
     create table(:products) do
-      add :name, :string
+      add :nickname, :string
       add :key, :string
       add :secret, :string
       add :node_type, :integer
-      add :desc, :string
+      add :description, :string
 
       timestamps()
     end

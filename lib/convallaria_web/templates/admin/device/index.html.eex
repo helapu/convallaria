@@ -4,7 +4,8 @@
   <thead>
     <tr>
       <th>Product key</th>
-      <th>Name</th>
+      <th>Nick Name</th>
+      <th>key</th>
       <th>Secret</th>
       <th>Iotid</th>
 
@@ -15,7 +16,8 @@
 <%= for device <- @devices do %>
     <tr>
       <td><%= device.product_key %></td>
-      <td><%= device.name %></td>
+      <td><%= device.nickname %></td>
+      <td><%= device.key %></td>
       <td><%= device.secret %></td>
       <td><%= device.iotid %></td>
 

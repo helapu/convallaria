@@ -3,11 +3,13 @@ defmodule Convallaria.Repo.Migrations.CreateDevices do
 
   def change do
     create table(:devices) do
+      add :nickname, :string
       add :product_key, :string
-      add :name, :string
+      add :key, :string
       add :secret, :string
       add :iotid, :string
-      add :user_id, references("users")
+
+      
       
       timestamps()
     end

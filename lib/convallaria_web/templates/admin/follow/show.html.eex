@@ -1,0 +1,27 @@
+<h2>Show Follow</h2>
+
+<ul>
+
+  <li>
+    <strong>Product Key:</strong>
+    <%= @follow.product_key %>
+  </li>
+
+  <li>
+    <strong>Device Key:</strong>
+    <%= @follow.device_key %>
+  </li>
+  <li>
+    <strong>Device Secret:</strong>
+    <%= @follow.device_secret %>
+  </li>
+  
+  <li>
+    <strong>Is ower:</strong>
+    <%= @follow.is_ower %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: admin_follow_path(@conn, :edit, @follow) %></span>
+<span><%= link "Back", to: admin_follow_path(@conn, :index) %></span>

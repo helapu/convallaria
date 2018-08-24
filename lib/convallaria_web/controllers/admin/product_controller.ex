@@ -39,14 +39,43 @@ defmodule ConvallariaWeb.Admin.ProductController do
   def update(conn, %{"id" => id, "product" => product_params}) do
     product = Iothubs.get_product!(id)
 
-    case Iothubs.update_product(product, product_params) do
-      {:ok, product} ->
+    params = %{
+      "Action" => "UpdateProduct",
+      "ProductKey" => product_params["key"],
+      "ProductName" => product_params["name"],
+      "ProductDesc" => product_params["desc"]
+    }
+
+    IO.inspect params
+    ali_response = Convallaria.AliClient.sync_data(params)
+    IO.inspect ali_response
+
+    case ali_response do
+      {:ok, data} ->
+        IO.puts "ali_response data"
+        IO.inspect data
+        if data["Success"] do
+          case Iothubs.update_product(product, product_params) do
+            {:ok, product} ->
+              conn
+              |> put_flash(:info, "Product updated successfully.")
+              |> redirect(to: admin_product_path(conn, :show, product))
+            {:error, %Ecto.Changeset{} = changeset} ->
+              render(conn, "edit.html", product: product, changeset: changeset)
+          end
+        else
+          conn
+          |> put_flash(:info, "Product updated successfully.")
+          |> redirect(to: admin_product_path(conn, :show, product))
+        end
+       
+      {:error, error} ->
+        IO.inspect error
         conn
         |> put_flash(:info, "Product updated successfully.")
         |> redirect(to: admin_product_path(conn, :show, product))
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", product: product, changeset: changeset)
     end
+    
   end
 
   def delete(conn, %{"id" => id}) do

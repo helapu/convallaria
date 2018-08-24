@@ -1,30 +1,54 @@
 defmodule ConvallariaWeb.Api.DeviceController do
   use ConvallariaWeb, :controller
 
-  alias Convallaria.Iothubs
   alias Convallaria.Iothubs.Device
-
+  alias Convallaria.Iothubs.Follow
+  alias Convallaria.Frontends
+  
   action_fallback ConvallariaWeb.FallbackController
 
-  def index(conn, _params) do
-    devices = Iothubs.list_devices()
-    render(conn, "index.json", devices: devices)
+  def index(conn, params) do
+    page_size = Map.get(params, "page_size", 10)
+    current_page = Map.get(params, "current_page", 1)
+    user = current_user(conn)
+    
+    devices = Frontends.list_devices(%{"page_size" => String.to_integer(page_size), "current_page" => String.to_integer(current_page), "user_id" => user.id })
+    render(conn, "index.json", devices: devices, page_size:  page_size, current_page:  current_page)
   end
 
-  def create(conn, %{"device" => device_params}) do
-    with {:ok, %Device{} = device} <- Iothubs.create_device(device_params) do
+  @doc """
+  add follow data. first add as ower second add as sharer
+  """
+  def create(conn, %{"device_key" => device_key, "is_share" => true}) do
+    user = current_user(conn)
+
+    f =  Frontends.get_follow!(%{"device_key" => device_key, "user_id": user.id})
+    device_follows = Frontends.get_follow!(%{"device_key" => device_key})
+
+    if (device_follows |> Enum.count) < 10 do
+      with {:ok, %Device{} = device} <- Frontends.Device.create_follow() do
+        conn
+        |> render("show.json", device: device)
+      end      
+    else
       conn
-      |> put_status(:created)
-      |> put_resp_header("location", api_device_path(conn, :show, device))
-      |> render("show.json", device: device)
+      |> render("error.json", code: 1101)
+    
     end
+    
   end
 
-  def show(conn, %{"id" => id}) do
-    device = Iothubs.get_device!(id)
+  @doc """
+  show follow device
+  """
+  def show(conn, %{"device_key" => device_key}) do
+    device = Frontends.Device.get_follow!(divice_key)#Iothubs.get_device_by_follow!(id)
     render(conn, "show.json", device: device)
   end
 
+  @doc """
+  controller the device if is the ower
+  """
   def update(conn, %{"id" => id, "device" => device_params}) do
     device = Iothubs.get_device!(id)
 
@@ -33,10 +57,21 @@ defmodule ConvallariaWeb.Api.DeviceController do
     end
   end
 
+  @doc """
+  unfollow a device unless your are not the ower
+  the ower can not unfollow the device
+  """
   def delete(conn, %{"id" => id}) do
-    device = Iothubs.get_device!(id)
-    with {:ok, %Device{}} <- Iothubs.delete_device(device) do
-      send_resp(conn, :no_content, "")
+    
+    follow = Iothubs.get_follow!(id)
+    if follow.is_ower do
+      render(conn, "error.json", code: 200)
+    else
+      with {:ok, %Follow{}} <- Iothubs.delete_follow(follow) do
+        send_resp(conn, :no_content, "")
+      end
     end
+    
   end
+
 end
