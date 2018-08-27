@@ -27,10 +27,11 @@ defmodule ConvallariaWeb.Api.DeviceView do
     }
   end
 
-  def render("error.json", error) do
+  def render("error.json", %{code: code, message: message}) do
     %{
-      error: error
+      code: code,
+      message: message
     }
   end
-  
+
 end

@@ -3,7 +3,10 @@ defmodule ConvallariaWeb.Api.VerifyCodeController do
 
   alias Convallaria.Accounts
   alias Convallaria.Accounts.VerifyCode
-    
+  alias Convallaria.Yunpian
+
+  action_fallback ConvallariaWeb.Api.FallbackController
+
   def send_code(conn, %{"mobile" => mobile, "type" => type}) do
     user = Accounts.get_user_by_mobile(mobile)
 
@@ -12,7 +15,7 @@ defmodule ConvallariaWeb.Api.VerifyCodeController do
       "register" ->
         if user do
           # 用户存在 请直接登录
-          render(conn, "error.json", error: "用户存在请直接登录", code: 1002)
+          {:error, :user_exist}
         else
           # 发送注册验证码
           send_by(conn, mobile, type)
@@ -25,28 +28,39 @@ defmodule ConvallariaWeb.Api.VerifyCodeController do
           send_by(conn, mobile, type)
         else
           # 用户不存在 请先注册
-          render(conn, "error.json", error: "用户不存在请先注册", code: 1001)
+          {:error, :user_not_exist}
         end
     end
-    
+
   end
 
   defp send_by(conn, mobile, type) do
     codes = Accounts.last_codes(mobile, type)
     if Enum.count(codes) > 3 do
-      render(conn, "error.json", error: "一分钟最多发送三条#{type}验证码", code: 1005)
+      {:error, :verify_code_send_to_much}
     else
       code = "#{:rand.uniform * 10000 |> round}"
-      verify_code_params = %{mobile: mobile, type: type, code: code}
-  
-      with {:ok, %VerifyCode{} = verify_code} <- Accounts.create_verify_code(verify_code_params) do
-        conn
-        |> put_status(:created)
-        |> render("send_code.json", expired_at: verify_code.inserted_at)
+      verify_code_params = %{mobile: mobile, type: type, verify_code: code}
+
+      case Yunpian.send_code(mobile, code) do
+        {:ok, %{response_status: sid, message: msg}} ->
+          verify_code_params = Map.merge(verify_code_params, %{status: sid, message: msg})
+
+          with {:ok, %VerifyCode{} = verify_code} <- Accounts.create_verify_code(verify_code_params) do
+            conn
+            |> put_status(:created)
+            |> render("send_code.json", expired_at: verify_code.inserted_at)
+          end
+        {:error, %{response_status: code, message: msg}} ->
+          verify_code_params = Map.merge(verify_code_params, %{status: code, message: msg})
+
+          with {:ok, %VerifyCode{} = verify_code} <- Accounts.create_verify_code(verify_code_params) do
+            {:error, :send_code_failed}
+          end
       end
-  
+
     end
-    
+
   end
 
 end

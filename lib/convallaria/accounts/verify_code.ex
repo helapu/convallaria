@@ -4,9 +4,11 @@ defmodule Convallaria.Accounts.VerifyCode do
 
 
   schema "verify_codes" do
-    field :code, :string
+    field :verify_code, :string
+    field :type, :string
     field :mobile, :string
-    field :type, :integer
+    field :status, :string
+    field :message, :string
 
     timestamps()
   end
@@ -14,7 +16,7 @@ defmodule Convallaria.Accounts.VerifyCode do
   @doc false
   def changeset(verify_code, attrs) do
     verify_code
-    |> cast(attrs, [:code, :type, :mobile])
-    |> validate_required([:code, :type, :mobile])
+    |> cast(attrs, [:verify_code, :type, :mobile, :status, :message])
+    |> validate_required([:verify_code, :type, :mobile])
   end
 end

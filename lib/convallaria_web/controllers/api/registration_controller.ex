@@ -16,7 +16,7 @@ defmodule ConvallariaWeb.Api.RegistrationController do
     user = Accounts.get_user_by_mobile(mobile)
 
     if user do
-      render(conn, "error.json", error: "用户已经存在", code: 1002)
+      {:error, :user_exist}
     else
       Logger.info "start register user"
       last_code = Accounts.last_one_code(mobile, "register")
@@ -33,11 +33,11 @@ defmodule ConvallariaWeb.Api.RegistrationController do
             Accounts.mark_as_actived(u0)
             render(conn, "register.json", user: u0)
           {:error, _changeset} ->
-            render(conn, "error.json", error: "注册信息错误", code: 1008)
+            {:error, :register_data_format}
         end
-        
+
       else
-        render(conn, "error.json", error: "验证码错误", code: 1007)
+        {:error, :verify_code}
       end
 
     end

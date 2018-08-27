@@ -83,17 +83,3 @@ array, binary, boolean, date, decimal, float, integer, map, naive_datetime,
 references, string, text, time, utc_datetime, uuid
 
 ```
-
-## API状态码
-
-- 1001 用户不存在
-- 1002 用户存在
-- 1003 密码错误
-- 1004 手机号不存在
-- 1005 一分钟最多发送3条验证码
-- 1006 用户注册成功
-- 1007 验证码错误
-- 1008 注册信息错误
-
-
-- 1101 device shared more than 10 users

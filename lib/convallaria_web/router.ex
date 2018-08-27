@@ -86,7 +86,6 @@ defmodule ConvallariaWeb.Router do
 
     scope "/" do
       get "/visual_iot", VisualController, :visual_iot
-      # get "/visual_iot", VisualController, :visual_iot
 
     end
 
@@ -113,12 +112,12 @@ defmodule ConvallariaWeb.Router do
       scope "/users" do
         get "/profile", UserController, :profile
       end
-      resources "/products", ProductController
-      resources "/devices", DeviceController
-      post "/gallerys", GalleryController, :create
+      resources "/devices", DeviceController, param: "device_key" do
+        get "/status", DeviceController, :show, as: :status
+      end
 
     end
-    
+
   end
 
 

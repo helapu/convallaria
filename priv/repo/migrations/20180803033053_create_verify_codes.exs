@@ -3,9 +3,11 @@ defmodule Convallaria.Repo.Migrations.CreateVerifyCodes do
 
   def change do
     create table(:verify_codes) do
-      add :code, :string
+      add :verify_code, :string
       add :type, :string
       add :mobile, :string
+      add :status, :string
+      add :message, :string
 
       timestamps()
     end
