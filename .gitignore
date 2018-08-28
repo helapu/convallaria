@@ -29,3 +29,5 @@ npm-debug.log
 /test/
 
 *.bean
+
+.elixir_ls/*

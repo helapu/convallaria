@@ -32,4 +32,8 @@ defmodule ConvallariaWeb.Api.SessionController do
 
   end
 
+  def login(conn, %{"mobile" => mobile, "password" => password}) do
+    {:error, :no_matched_request}
+  end
+
 end

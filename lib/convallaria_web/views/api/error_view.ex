@@ -14,6 +14,12 @@ defmodule ConvallariaWeb.Api.ErrorView do
     Phoenix.Controller.status_message_from_template(template)
   end
 
+  def render("error.json", %{code: :no_matched_request}) do
+    %{
+      code: 1000,
+      message: "请求参数不匹配"
+    }
+  end
 
   # 用户相关错误
   def render("error.json", %{code: :user_not_exist}) do
